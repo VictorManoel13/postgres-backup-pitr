@@ -1,14 +1,37 @@
-verificar tabela:
+
+
+```markdown
+
+### Verificar Tabela
+Para verificar o conteúdo da tabela `users` no banco de dados `testdb`, utilize o seguinte comando:
+
+```sh
 docker-compose exec postgres psql -U user -d testdb -c "SELECT * FROM users;"
+```
 
-fazer backup:
+### Fazer Backup
+Para fazer um backup do banco de dados `testdb`, utilize o seguinte comando:
+
+```sh
 docker-compose exec postgres pg_dump -U user -d testdb -F c -b -v -f /backups/testdb_backup.dump
+```
 
-apagar:
+### Apagar Dados
+Para apagar dados da tabela `users` onde o nome é 'Alice', utilize o seguinte comando:
+
+```sh
 docker-compose exec postgres psql -U user -d testdb -c "DELETE FROM users WHERE name='Alice';"
+```
 
-restaurar:
+### Restaurar Backup
+Para restaurar o backup do banco de dados `testdb`, utilize o seguinte comando:
+
+```sh
 docker-compose exec postgres pg_restore -U user -d testdb -c -v /backups/testdb_backup.dump
+```
+```
+
+Você pode copiar e colar este conteúdo diretamente no seu repositório GitHub. Se precisar de mais alguma coisa, estou à disposição!
 
 
 
