@@ -78,3 +78,59 @@ O arquivo `init.sql` é um script SQL que contém comandos para inicializar o ba
 2. **Docker Compose**
    - **Descrição:** Docker Compose é uma ferramenta para definir e gerenciar aplicações Docker multi-contêiner. Ele usa um arquivo YAML para configurar os serviços da aplicação.
    - **Benefícios:** Facilita o gerenciamento de aplicações complexas, permite definir redes e volumes de forma declarativa, facilita o desenvolvimento e teste de aplicações multi-contêiner.
+
+
+
+# Backup e Recuperação Point-in-Time (PITR) no PostgreSQL
+
+## Backup no PostgreSQL
+
+### O que é um Backup?
+No contexto do PostgreSQL, um backup é o processo de criar uma cópia do banco de dados para que ele possa ser restaurado em caso de falha ou perda de dados. Existem várias maneiras de fazer backups no PostgreSQL, incluindo backups lógicos e físicos.
+
+### Tipos de Backup no PostgreSQL
+
+1. **Backup Lógico:**
+   - **Descrição:** Envolve a extração dos comandos SQL necessários para recriar o banco de dados.
+   - **Ferramentas:** `pg_dump` e `pg_dumpall`.
+   - **Uso:** Ideal para migrações de banco de dados e backups em menor escala.
+
+2. **Backup Físico:**
+   - **Descrição:** Envolve a cópia direta dos arquivos de dados do PostgreSQL.
+   - **Ferramentas:** `pg_basebackup`.
+   - **Uso:** Mais adequado para backups completos de grandes bancos de dados e para implementar PITR.
+
+### Importância do Backup
+- **Recuperação de Dados:** Permite restaurar os dados em caso de perda ou corrupção.
+- **Continuidade dos Negócios:** Garante que a operação do negócio possa continuar com mínima interrupção.
+- **Compliance:** Atende às exigências de conformidade de diversas indústrias e regulamentos.
+
+## Recuperação Point-in-Time (PITR) no PostgreSQL
+
+### O que é PITR?
+Recuperação Point-in-Time (PITR) no PostgreSQL é uma técnica que permite restaurar o banco de dados a um estado específico em um ponto no tempo anterior. Isso é feito usando uma combinação de um backup base e arquivos de log de transação (WAL - Write-Ahead Logging).
+
+### Como Funciona?
+1. **Backup Base:**
+   - **Descrição:** Um snapshot completo do banco de dados em um momento específico.
+   - **Ferramentas:** `pg_basebackup`.
+
+2. **Logs de Transação (WAL):**
+   - **Descrição:** Arquivos que registram todas as mudanças feitas no banco de dados após o backup base.
+   - **Configuração:** Para habilitar PITR, o parâmetro `archive_mode` deve ser ativado e `archive_command` deve ser configurado para armazenar os arquivos WAL.
+
+3. **Processo de Recuperação:**
+   - **Passos:** 
+     1. Restaurar o backup base.
+     2. Aplicar os logs de transação até o ponto no tempo desejado.
+   - **Ferramentas:** `pg_restore` e `pg_rewind`.
+
+### Benefícios do PITR
+- **Correção de Erros:** Permite retornar o banco de dados a um estado anterior a um erro específico.
+- **Flexibilidade:** Oferece a capacidade de restaurar o banco de dados a qualquer ponto no tempo.
+- **Minimização de Perdas de Dados:** Reduz a perda de dados, restaurando o banco de dados ao ponto exato antes de um incidente.
+
+
+
+
+
