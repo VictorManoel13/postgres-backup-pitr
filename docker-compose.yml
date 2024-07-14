@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    build: .
+    container_name: my-postgres-container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backups:/backups
+    entrypoint: ["docker-entrypoint.sh", "postgres"]
+
+volumes:
+  pgdata:
