@@ -6,7 +6,7 @@ Este repositório contém os arquivos necessários para configurar e gerenciar c
 docker-compose up --build
 ```
 
-# Testes
+# Testes para Backup
 ### Verificar Tabela
 Para verificar o conteúdo da tabela `users` no banco de dados `testdb`, utilize o seguinte comando:
 
