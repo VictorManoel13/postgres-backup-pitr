@@ -4,8 +4,9 @@
 
 ### Verificar Tabela
 Para verificar o conteúdo da tabela `users` no banco de dados `testdb`, utilize o seguinte comando:
+```
 
-```sh
+``` sh
 docker-compose exec postgres psql -U user -d testdb -c "SELECT * FROM users;"
 ```
 
