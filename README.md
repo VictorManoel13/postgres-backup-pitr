@@ -1,3 +1,11 @@
+# Construção e Gerenciamento de Contêineres Docker
+
+Este repositório contém os arquivos necessários para configurar e gerenciar contêineres Docker para sua aplicação. Para construir o container Docker é da seguinte maneira:
+
+```sh
+docker-compose up --build
+```
+
 # Testes
 ### Verificar Tabela
 Para verificar o conteúdo da tabela `users` no banco de dados `testdb`, utilize o seguinte comando:
