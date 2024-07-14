@@ -1,8 +1,7 @@
 ### Verificar Tabela
 Para verificar o conteúdo da tabela `users` no banco de dados `testdb`, utilize o seguinte comando:
-```
 
-``` sh
+```sh
 docker-compose exec postgres psql -U user -d testdb -c "SELECT * FROM users;"
 ```
 
@@ -26,10 +25,6 @@ Para restaurar o backup do banco de dados `testdb`, utilize o seguinte comando:
 ```sh
 docker-compose exec postgres pg_restore -U user -d testdb -c -v /backups/testdb_backup.dump
 ```
-```
-
-Você pode copiar e colar este conteúdo diretamente no seu repositório GitHub. Se precisar de mais alguma coisa, estou à disposição!
-
 
 
 # Documentação dos Arquivos e Ferramentas
@@ -74,3 +69,11 @@ O arquivo `init.sql` é um script SQL que contém comandos para inicializar o ba
 2. **Docker Compose**
    - **Descrição:** Docker Compose é uma ferramenta para definir e gerenciar aplicações Docker multi-contêiner. Ele usa um arquivo YAML para configurar os serviços da aplicação.
    - **Benefícios:** Facilita o gerenciamento de aplicações complexas, permite definir redes e volumes de forma declarativa, facilita o desenvolvimento e teste de aplicações multi-contêiner.
+
+## Comandos Úteis para Gerenciamento de Banco de Dados com Docker Compose
+
+### Verificar Tabela
+Para verificar o conteúdo da tabela `users` no banco de dados `testdb`, utilize o seguinte comando:
+
+```sh
+docker-compose exec postgres psql -U user -d testdb -c "SELECT * FROM users;"
