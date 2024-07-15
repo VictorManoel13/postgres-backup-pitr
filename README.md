@@ -1,3 +1,11 @@
+# Componentes do Grupo Dique INC
+
+- **Allan Kaio de Oliveira Brito**
+- **Allany dos Santos Rodrigues**
+- **Lyziane da Silva Nogueira**
+- **Reinaldo Rogger Santos da Silva**
+- **Victor Manoel Soares da Silva**
+
 # Construção e Gerenciamento de Contêineres Docker
 
 Este repositório contém os arquivos necessários para configurar e gerenciar contêineres Docker para sua aplicação. Para construir o container Docker é da seguinte maneira:
